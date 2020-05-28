@@ -1,0 +1,204 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  .tab-example {
+    max-width: 1170px;
+    margin: 0 auto;
+ 
+  }
+
+  
+  .tabs {
+    display: flex;
+    justify-content: flex-start; /* position of the tab */
+    align-items: stretch; /* for <li> to occupy the full height (horizontal) / width (vertical) */
+    position: relative;
+    list-style: none;
+    width: 100%;
+    min-height: 200px; /* height of the tab area */
+    color: black;
+  }
+  
+  .tabs-horizontal {
+    flex-direction: row;
+  }
+  
+  .tabs-vertical {
+    flex-direction: column;
+  }
+  
+  [type="radio"] {
+    display: none; /* hide the radio button */
+  }
+  
+  .tab-label {
+    display: inline-block;
+    padding: 5px 10px;
+    text-align: center;
+    cursor: pointer;
+
+    white-space: nowrap; /* prevent label from wrapping */
+  }
+  
+  .tab-label-horizontal {
+    width: 80px;
+    height: 15%;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+  }
+  
+  .tab-label-vertical {
+    width: 10%;
+    height: 30px;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+  }
+  
+  .tab-label:hover {
+   
+  }
+  
+  
+  
+  [id^="tab-content-"] {
+    display: none; /* hide the content of all tabs (not selected) */
+    padding: 5px 10px;
+
+    width: 100%;
+    height: 100%;
+    overflow: scroll; /* able to scroll to see all content */
+  }
+  
+  [id*="tab-content-horizontal"] {
+    position: absolute; /* layout as the content area for all tabs */
+    top: 15%; /* height of label */
+    left: 0; /* relative to <ul>, independent of how <li> is positioned */
+    height: 85%; /* adjust according to height of label */
+  }
+  
+  [id*="tab-content-vertical"] {
+    position: absolute; /* layout as the content area for all tabs */
+    top: 0;
+    left: 10%; /* width of label */
+    width: 90%; /* adjust according to width of label */
+  }
+  
+ 
+  
+  [type="radio"]:checked ~ [id^="tab-content-"] {
+    display: block; /* display the content of selected tab */
+  }
+  
+  @media only screen and (max-width: 425px) {
+    .tabs {
+      display: block;
+    }
+  
+    .tab-label {
+      width: 100%;
+      border-radius: 0;
+      border: 1px solid #006;
+    }
+  
+    [id^="tab-content-"] {
+      position: static;
+      width: 100%;
+      border: 1px solid #006;
+      border-top: none;
+    }
+  }
+
+  div.bhoechie-tab-container{
+    z-index: 10;
+    background-color: transparent;
+    padding: 0 !important;
+    border-radius: 4px;
+    -moz-border-radius: 4px;
+    border:1px solid #ddd;
+    margin-top: 5px;
+    margin-left: 5px;
+    -webkit-box-shadow: 0 6px 12px rgba(0,0,0,.175);
+    box-shadow: 0 6px 12px rgba(0,0,0,.175);
+    -moz-box-shadow: 0 6px 12px rgba(0,0,0,.175);
+    background-clip: padding-box;
+    opacity: 0.97;
+    filter: alpha(opacity=97);
+    height: auto;
+  }
+  div.bhoechie-tab-menu{
+    padding-right: 0;
+    padding-left: 0;
+    padding-bottom: 0;
+  }
+  div.bhoechie-tab-menu div.list-group{
+    margin-bottom: 0;
+  }
+  div.bhoechie-tab-menu div.list-group>a{
+    border-radius: 30px;
+    margin: 0 -0.2em 0 0;
+    background: #d31a2a;
+    color: #ffffff;
+    width: 19%;
+    display: inline-block;
+  }
+  @media (max-width: 414px){
+    div.bhoechie-tab-menu div.list-group>a{
+    border-radius: 30px;
+    margin: 0 -0.2em 0 0;
+    background: #d31a2a;
+    color: #ffffff;
+    width: 50%;
+    display: inline-block;
+  }
+  .bhoechie-tab-menu{
+      width: 100%;
+  }
+  
+}
+  div.bhoechie-tab-menu div.list-group>a .glyphicon,
+  div.bhoechie-tab-menu div.list-group>a .fa {
+    color: #099AE1; /* link roxo  e agora tá azul*/
+  }
+  div.bhoechie-tab-menu div.list-group>a:first-child{
+   
+  }
+
+  div.bhoechie-tab-menu div.list-group>a:last-child{
+
+  }
+  div.bhoechie-tab-menu div.list-group>a.active,
+  div.bhoechie-tab-menu div.list-group>a.active .glyphicon,
+  div.bhoechie-tab-menu div.list-group>a.active .fa{
+    background: #3c3c3b;
+    color: #FFFFFF;
+  }
+
+  div.bhoechie-tab-menu div.list-group>a.active>h4{
+    background: #3c3c3b;
+    color: #FFFFFF;
+  }
+
+  div.bhoechie-tab-menu div.list-group>a>h4{
+    color: #FFFFFF;
+  }
+  
+  div.bhoechie-tab-content{
+    background-color: transparent;
+    /* border: 1px solid #eeeeee; */
+    padding-left: 20px;
+    padding-top: 10px;
+  }
+  
+  div.bhoechie-tab div.bhoechie-tab-content:not(.active){
+    display: none;
+  }
+  
+  @media (max-width: 470px){
+   .list-group p{
+     display:none;
+   }
+   
+  }
