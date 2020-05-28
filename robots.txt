@@ -1,0 +1,19 @@
+User-agent: *
+Disallow: /views/georef.php
+Disallow: /views/404.html
+Disallow: /maxibienes-noticias/
+Disallow: /rs-plugin/
+Disallow: /woocommerce-FlexSlider-53570ee 2/
+Disallow: /views/detelle-inmueble.php
+Disallow: /mapas-sedes/
+Disallow: /api_php
+Disallow: /controllers/
+Disallow: /css/
+Disallow: /fonts/
+Disallow: /include/
+Disallow: /SEO/
+Disallow: /twitter/
+Disallow: /js/
+Disallow: /views/error_log
+
+
