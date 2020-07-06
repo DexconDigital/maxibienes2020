@@ -3,25 +3,28 @@
 <!--[if IE 7 ]><html class="ie ie7" lang="en"> <![endif]-->
 <!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
 <!--[if (gte IE 9)|!(IE)]><!-->
-<?php require 'api_php/config.php'?>
+<?php require 'api_php/config.php' ?>
 <html lang="es">
 <!--<![endif]-->
 
 <head>
     <meta charset="utf-8" />
     <!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-136598713-1"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-136598713-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
 
-  gtag('config', 'UA-136598713-1');
-</script>
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+
+        gtag('config', 'UA-136598713-1');
+    </script>
 
     <!-- Page Title -->
-	<?php $page ="PQRS";
-	include 'SEO/metaEtiquetas.php';?>
+    <?php $page = "PQRS";
+    include 'SEO/metaEtiquetas.php'; ?>
 
     <!-- Mobile Meta Tag -->
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
@@ -38,21 +41,22 @@
 	<![endif]-->
 
     <!-- Google Web Font -->
-    <link href="https://fonts.googleapis.com/css?family=Raleway:300,500,900%7COpen+Sans:400,700,400italic" rel="stylesheet"
-        type="text/css" />
-    	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> 
+    <link href="https://fonts.googleapis.com/css?family=Raleway:300,500,900%7COpen+Sans:400,700,400italic" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <!-- Bootstrap CSS -->
-    <link href="css/bootstrap.min.css" rel="stylesheet" />
+    <link href="<?php echo $url_host; ?>css/bootstrap.min.css" rel="stylesheet" />
 
     <!-- Template CSS -->
     <link href="css/style.css" rel="stylesheet" />
+
     <link rel="stylesheet" href="css/style2.css">
+
 
     <!-- Modernizr -->
 
-    <script src="js/modernizr-2.8.1.min.js"></script>
-
+    <script src="<?php echo $url_host; ?>js/modernizr-2.8.1.min.js"></script>
+    <!-- <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCmu-UkTcheWni6_HMOKYU9x3AYP571e5s&callback=initMap"></script> -->
 </head>
 
 <body>
@@ -71,7 +75,7 @@
             <div id="nav-section">
                 <div class="container">
                     <div class="row menu-ppal">
-                        <?php include 'include/menu.php'?>
+                        <?php include 'include/menu.php' ?>
                     </div>
                 </div>
             </div>
@@ -107,18 +111,24 @@
 
 
 
-                            <form class="form-style" action="<?php echo $url_host?>js/mailpqrs.php" method="POST">
-                                <input type="text" name="nombre" id="nombre" placeholder="Nombre" class="form-control" />
-                                <input type="text" name="apellido" id="apellido" placeholder="Apellido" class="form-control" />
+                            <form class="form-style" action="<?php echo $url_host ?>js/mailpqrs.php" method="POST">
+                                <input type="text" name="nombre" id="nombre" placeholder="Nombre" class="form-control">
+
+                                <input type="text" name="apellido" id="apellido" placeholder="Apellido" class="form-control">
+
                                 <select class="form-control" id="asunto" name="asunto" data-placeholder="Tipo de Inmueble">
                                     <option value="">Asunto</option>
                                     <option value="Felicitaciones">Felicitaciones</option>
                                     <option value="Quejas">Quejas </option>
                                     <option value="Reclamos">Reclamos</option>
                                 </select>
-                                <input type="text" name="celular" id="celular" placeholder="Celular" class="form-control" />
-                                <input type="text" name="telefono" id="telefono" placeholder="Teléfono" class="form-control" />
-                                <input type="email" name="email" id="email" placeholder="Correo Electrónico" class="form-control" />
+
+                                <input type="text" name="celular" id="celular" placeholder="Celular" class="form-control">
+
+                                <input type="text" name="telefono" id="telefono" placeholder="Teléfono" class="form-control">
+
+                                <input type="email" name="email" id="email" placeholder="Correo Electrónico" class="form-control">
+
                                 <select class="form-control" id="sede" name="sede" data-placeholder="Tipo de Inmueble">
                                     <option value="">Sucursal</option>
                                     <option value="Sucursal San Juan">Sucursal San Juan</option>
@@ -126,24 +136,21 @@
                                     <option value="Sucursal Belén">Sucursal Belén</option>
                                     <option value="Sucursal Centro">Sucursal Centro</option>
                                     <option value="Sucursal Sur">Sucursal Sur</option>
-
-
                                 </select>
-                                <textarea name="mensaje" id="mensaje" placeholder="Mensaje" class="form-control required"></textarea>
 
-                                <div class="checkbox">
+                                <textarea name="mensaje" id="mensaje" placeholder="Mensaje" class="form-control"></textarea>
+
+                                <div class="checkbox" name="terms">
                                     <label>
-                                        <input type="checkbox" name="terms"> Confirmo que he leído, entendido y acepto
-                                        el <a href="images/Politicas_Tratamiento_Datos.pdf"
-								 target="_blank">Manual de políticas Web</a> , <a href="images/Aviso_de_Privacidad.pdf" target="_blank">Aviso de
-									Privacidad</a> y la <a href="images/Consentimiento_Tratamiento_Datos.pdf" target="_blank">Cláusula de consentimiento web </a>
+                                        <input type="checkbox" name="terms" required> Confirmo que he leído, entendido y acepto
+                                        el
+                                        <a href="images/Aviso_de_Privacidad.pdf" target="_blank">Aviso de Privacidad</a>.
+                                       
                                     </label>
                                 </div>
 
                                 <button class="btn btn-fullcolor" type="submit">Enviar</button>
                             </form>
-
-
 
                         </div>
 
@@ -156,58 +163,59 @@
         </div>
 
         <footer id="footer" class="footer-ppal">
-            <?php include 'include/footer.php'?>
+            <?php include 'include/footer.php' ?>
         </footer>
         <!-- END FOOTER -->
         <div id="stop" class="scrollTop">
-			
-			</div>
+
+        </div>
 
     </div>
 
     <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
-    		<script src="js/common.js"></script>
+    <script src="js/common.js"></script>
     <script src="js/variables.js"></script>
     <script src="js/menu.js"></script>
     <script src="js/top.js"></script>
-     <script src="js/pqrs.js"></script>
+    <script src="js/pqrs.js"></script>
 
     <script src="js/scripts.js"></script>
     <div id="fb-root"></div>
-<script>
-  window.fbAsyncInit = function() {
-    FB.init({
-      appId            : '957165454489599',
-      autoLogAppEvents : true,
-      xfbml            : true,
-      version          : 'v2.11'
-    });
-  };
-(function(d, s, id) {
-  var js, fjs = d.getElementsByTagName(s)[0];
-  if (d.getElementById(id)) return;
-  js = d.createElement(s); js.id = id;
-  js.src = 'https://connect.facebook.net/es_LA/sdk/xfbml.customerchat.js';
-  fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'facebook-jssdk'));
-</script>
+    <script>
+        window.fbAsyncInit = function() {
+            FB.init({
+                appId: '957165454489599',
+                autoLogAppEvents: true,
+                xfbml: true,
+                version: 'v2.11'
+            });
+        };
+        (function(d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) return;
+            js = d.createElement(s);
+            js.id = id;
+            js.src = 'https://connect.facebook.net/es_LA/sdk/xfbml.customerchat.js';
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
+    </script>
 
-<!-- Your customer chat code -->
-<div class="fb-customerchat"
-  attribution=setup_tool
-  page_id="957764824286605"
-  theme_color="#fa3c4c"
-  logged_in_greeting="Hola! Como te puedo ayudar?"
-  logged_out_greeting="Hola! Como te puedo ayudar?">
-</div>
-    
+    <!-- Your customer chat code -->
+    <div class="fb-customerchat" attribution=setup_tool page_id="957764824286605" theme_color="#fa3c4c" logged_in_greeting="Hola! Como te puedo ayudar?" logged_out_greeting="Hola! Como te puedo ayudar?">
+    </div>
+
 
     <script>
-        (function (i, s, o, g, r, a, m) {
-            i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+        (function(i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r;
+            i[r] = i[r] || function() {
                 (i[r].q = i[r].q || []).push(arguments)
-            }, i[r].l = 1 * new Date(); a = s.createElement(o),
-                m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+            }, i[r].l = 1 * new Date();
+            a = s.createElement(o),
+                m = s.getElementsByTagName(o)[0];
+            a.async = 1;
+            a.src = g;
+            m.parentNode.insertBefore(a, m)
         })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
 
         ga('create', 'UA-40159437-9', 'auto');

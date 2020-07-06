@@ -29,17 +29,22 @@ require('api_php/config.php');
 	<!-- Mobile Meta Tag -->
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 
-	<meta property="title" content="Inmueble <?php echo $codigo; ?> de Maxibienes Profesionales Inmobiliario" />
-	<meta property="site_name" content="Maxibienes Profesionales Inmobiliario" />
-	<meta property="description" id="metap" content="Inmueble de Maxibienes Profesionales Inmobiliario" />
-	<meta property="image" content="<?php echo $r["fotos"][0]["foto"]; ?>" id="metai" />
-	<meta property="type" content="place" />
-	<meta property="url" content="<?php echo $url_host; ?>maxibienes/descripcion-del-inmueble/<?php echo $codigo; ?>" />
-	<meta property="og:url" content="<?php echo $url_host; ?>maxibienes/descripcion-del-inmueble/<?php echo $codigo; ?>" />
-	<meta property="og:type" content="place" />
-	<meta property="og:title" content="Inmueble <?php echo $codigo; ?> de Maxibienes Profesionales Inmobiliario" />
-	<meta property="og:description" id="metap" content="Inmueble de Maxibienes Profesionales Inmobiliario" />
-	<meta property="og:image" content="<?php echo $r["fotos"][0]["foto"]; ?>" id="metai" />
+	<!-- Datos para compartir por facebook -->
+    <meta property="og:type" content="website" >
+    <meta property="og:url" content="<?php echo $url_host;?> descripcion-del-inmueble/codigo/ <?php $codigo?>" >
+    <meta property="og:title" content="<?php echo $r['Tipo_Inmueble'].' en '.$r['Gestion'];?>" >
+    <meta property="og:description" content="Inmueble ubicado en: <?php echo $r['barrio'] .', '. $r['ciudad'].', '.$r['depto'];?> " >
+    <meta property="og:image" itemprop="image" content="<?php echo $url_host;?><?php echo $r['fotos'][0]['foto'];?>" >
+    <meta property="og:image:type" content="image/jpg">
+    <meta property="og:image:width" content="280">
+    <meta property="og:image:height" content="280">
+    <!-- fin de datos para compartir por facebook -->
+	<!-- Twitter Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="<?php echo $r['Tipo_Inmueble'].' en '.$r['Gestion'];?>" >
+    <meta name="twitter:description" content="Inmueble ubicado en: <?php echo $r['barrio'] .', '. $r['ciudad'].', '.$r['depto'];?> " >
+    <meta name="twitter:image" content="<?php echo $r['fotos'][0]['foto'];?>" >
+    <!-- fin de datos para compartir por twitter -->
 
 	<!-- Fav and touch icons -->
 	<link rel="shortcut icon" type="image/x-icon" href="<?php echo $url_host; ?>images/favicon.png" />
@@ -242,9 +247,9 @@ require('api_php/config.php');
 						<div class="share-wraper col-sm-12">
 							<h5>Compartir:</h5>
 							<ul class="social-networks">
-								<li><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.maxibienes.com%2Fdescripcion-del-inmueble.php%3Fco%3D<?php echo $codigo; ?>"><i class="fa fa-facebook"></i></a></li>
-								<li><a target="_blank" href="https://twitter.com/?status=Me encanta este Inmueble tienes que verlo ahora https%3A%2F%2Fwww.maxibienes.com%2Fdescripcion-del-inmueble.php%3Fco%3D<?php echo $codigo; ?>"><i class="fa fa-twitter"></i></a></li>
-								<li><a target="_blank" href="http://pinterest.com/pin/create/button/?url=https%3A%2F%2Fwww.maxibienes.com%2Fdescripcion-del-inmueble%3Fco%3D<?php echo $codigo; ?>"><i class="fa fa-pinterest"></i></a></li>
+								<li><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fwww.maxibienes.com%2Fdescripcion-del-inmueble%2Fcodigo%2F<?php echo $codigo; ?>" target="_blank"><i class="fa fa-facebook"></i></a></li>
+								<li><a target="_blank" href="<?php echo 'https://twitter.com/intent/tweet?url='.$url_host.'%2Fdescripcion-del-inmueble%2Fcodigo%2F' . $codigo . '&text=' . $r['Tipo_Inmueble'] . '%20en%20' . $r['Gestion'] . '%20en%20' . $r['ciudad'] . '-' . $r['depto'] ?>" target="_blank"><i class="fa fa-twitter"></i></a></li>
+								<li><a target="_blank" href="http://pinterest.com/pin/create/button/?url=http%3A%2F%2Fwww.maxibienes.com%2Fdescripcion-del-inmueble%3Fco%3D<?php echo $codigo; ?>"><i class="fa fa-pinterest"></i></a></li>
 								<li><a id="myBtn"><i class="fa fa-envelope"></i></a></li>
 							</ul>
 							<a class="print-button" href="https://simicrm.app/mcomercialweb/fichas_tecnicas/fichatec3.php?reg=649-<?php echo $codigo; ?>" target="_blank">
@@ -388,22 +393,28 @@ require('api_php/config.php');
 							<!-- END LATEST NEWS -->
 							<h2 class="section-title">Formulario de Contacto</h2>
 
-							<form>
+							<form class="form-style" action="<?php echo $url_host ?>js/mailinmuebles.php" method="POST">
 								<div class="col-sm-12">
-									<input type="text" name="Name" placeholder="Nombre" class="form-control required fromName" required>
+									<input type="text" name="name" placeholder="Nombre" class="form-control required fromName" required>
 
-									<input type="email" name="Email" placeholder="Email" class="form-control required fromEmail" required>
+									<input type="email" name="email" placeholder="Email" class="form-control required fromEmail" required>
 
 									<input type="text" name="Subject" placeholder="Asunto" class="form-control required subject" required>
 									<textarea name="Message" placeholder="Mensaje" class="form-control required" required></textarea>
-									<input type="checkbox" name="terms" required> Confirmo que he leído, entendido y acepto el <a href="images/Politicas_Tratamiento_Datos.pdf" target="_blank">Manual de políticas Web</a> , <a href="images/Aviso_de_Privacidad.pdf" target="_blank">Aviso de
-										Privacidad</a> y la <a href="images/Consentimiento_Tratamiento_Datos.pdf" target="_blank">Cláusula de consentimiento web </a>
+
+									<input type="checkbox" name="terms" required> Confirmo que he leído, entendido y acepto el
+									 <!-- <a href="images/Politicas_Tratamiento_Datos.pdf" target="_blank">Manual de políticas Web</a> ,  -->
+									 <a href="<?php echo $url_host ?>images/Aviso_de_Privacidad.pdf" target="_blank">Aviso de Privacidad</a>.
+									 <!-- <a href="images/Consentimiento_Tratamiento_Datos.pdf" target="_blank">Cláusula de consentimiento web </a> -->
 								</div>
 
 								<div class="center">
-									<button type="submit" class="btn btn-default-color btn-lg submit_form"><i class="fa fa-envelope"></i>Enviar
+									<button type="submit" class="btn btn-default-color btn-lg submit_form mt-4"><i class="fa fa-envelope"></i>Enviar
 										Mensaje</button>
 								</div>
+								<select name="codigo" class="invisible display:none">
+									<option value=" <?php echo $codigo ?>"> <?php echo $codigo ?></option>
+								</select>
 							</form>
 							<!-- BEGIN NEWSLETTER -->
 							<h1 class="section-title">Propiedades Similares</h1>

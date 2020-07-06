@@ -7,18 +7,16 @@ require '../vendor/autoload.php';
 
 
 if ($_POST) {
-	$nombre = $_POST['nombre'];
-	$apellido = $_POST['apellido'];
-    $email = $_POST['email'];
-    $telefono = $_POST['telefono'];
-    $celular = $_POST['celular'];
-    $asunto = $_POST['asunto'];
-    $mensaje = $_POST['mensaje'];
-    $sede = $_POST['sede'];
+    $nombre = $_POST['name'];
+    $codigo = $_POST['codigo'];
+	$email = $_POST['email'];
+    $asunto = $_POST['Subject'];
+    $mensaje = $_POST['Message'];
+    
 }
 
-// echo $nombre ,' ',$apellido,' ',$email,' ',$telefono,' ',$celular,' ',$asunto,' ',$mensaje,' ',$sede;
-die();
+// echo $nombre ,$email ,$asunto,$mensaje , $codigo;
+// die();
 
 $mail = new PHPMailer(true);
 
@@ -46,23 +44,22 @@ try {
 	 $mail->addAddress('desarrollo2@dexcondigital.com');
 	 $mail->addAddress('alexthunder7@gmail.com');
 	 $mail->addAddress('gestion@dexcondigital.com');
+	//  $mail->addAddress('arrendamientos@maxibienes.com');
 	
 
 
-	$mail->Subject = 'Mensaje enviado desde la página web Maxibienes sección PQRS';
-	$mail->Body = '<span>Hola, ' . $nombre . ' '.$apellido.' quiere contactarse con ustedes, asunto del mensaje '.$asunto.'.</span>
+	$mail->Subject = 'Mensaje enviado desde la página web Maxibienes sección Inmuebles';
+	$mail->Body = '<span>Hola, ' . $nombre . ' quiere contactarse con ustedes, asunto del mensaje: <strong>'.$asunto.'.</strong></span>
                     <h4>Datos del mensaje:</h4>
-					<ul>
-						<li>Teléfono: ' . $telefono . '</li><br>
-						<li>Celular: ' . $celular . '</li><br>
-                        <li>Correo: ' . $email . '</li><br>
+                    <ul>
+                        <li>Código del Inmueble visitado: ' . $codigo . '</li><br>
+						<li>Correo: ' . $email . '</li><br>
 						<li>Mensaje: ' . $mensaje . '</li><br>
-						<li>Sede: ' . $sede . '</li><br>
-                    </ul>
+					</ul>
     ';
 	$mail->send();
 	echo '<script>alert("Mensaje enviado, muchas gracias.");
-	window.location.href="'.$url_host.'pqrs";
+	window.history.go(-2);
 	</script>';
 } catch (Exception $e) {
 	echo 'algo salio mal', $e->getMessage();

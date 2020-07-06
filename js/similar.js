@@ -99,7 +99,7 @@ var propiedades_similares = (data) => {
             codigo = codigo.replace("649-", "");
             res += '<div class="item col-sm-12">' +
                 '<div class="image">' +
-                '<a href="descripcion-del-inmueble/' + data.Inmuebles[pos].Codigo_Inmueble + '" >' +
+                '<a href="' + data.Inmuebles[pos].Codigo_Inmueble + '" >' +
                 '<h3>' + data.Inmuebles[pos].Tipo_Inmueble + '</br>Estrato: ' + data.Inmuebles[pos].Estrato + '</h3>' +
                 '<span class="location">Barrio: ' + data.Inmuebles[pos].Barrio + '</span>' +
                 '</a>';
