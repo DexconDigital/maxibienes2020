@@ -342,7 +342,7 @@ function openModalprop() {
         '<div class="modal-body">' +
         '<div class="row">' +
         '<ul>'+
-        '    <li onclick="openModalformArrendar()" class="modal-arrendar">Solicitar la terminación del contrato de arrendamiento vigente (Ley 820 de 2003).</li>'+
+        '    <li><a href="'+URL_LOCAL+'/propietarios" class="amodal-arrendar">Solicitar la terminación del contrato de arrendamiento vigente (Ley 820 de 2003).</a></li>'+
         '    <li><a href="'+URL_LOCAL+'/propietarios" class="amodal-arrendar">Estado de cuenta mensual.</a></li>'+
         '    <li><a href="'+URL_LOCAL+'/propietarios" class="amodal-arrendar">Solicitar certificado de ingresos.</a></li>'+
         '    <li><a href="'+URL_LOCAL+'/propietarios" class="amodal-arrendar">Solicitar certificado para la declaración de renta.</a></li>'+
@@ -373,7 +373,7 @@ function openModalarrendar() {
         '<div class="row">' +
         '<ul>'+
         '    <li><a href="'+URL_LOCAL+'arrendatarios" class="amodal-arrendar">Mantenimiento y reparación de su inmueble arrendado.</a></li>'+
-        '    <li onclick="openModalformArrendar()" class="modal-arrendar">Solicitar la terminación de su contrato de arrendamiento (Ley 820 de 2003).</li>'+
+        '    <li><a href="'+URL_LOCAL+'arrendatarios" class="amodal-arrendar">Solicitar la terminación de su contrato de arrendamiento (Ley 820 de 2003).</a></li>'+
         '    <li><a href="'+URL_LOCAL+'arrendatarios"  class="amodal-arrendar">Descargar de factura de pago de su arrendamiento.</a></li>'+
         '</ul>'+
         '<p>Evitando desplazamientos y desde la comodidad de su hogar, podrá hacerle el seguimiento correspondiente a la solicitud realizada.</p>'+
